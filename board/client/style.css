@@ -25,6 +25,13 @@ html, body { margin: 0; height: 100%; background: var(--bg); overflow: hidden; f
 .legend .orb { background: var(--cyan); box-shadow: 0 0 6px var(--cyan); }
 .legend .gnd { background: #f0505a; }
 
+#race-hud {
+  position: fixed; bottom: 14px; left: 16px; z-index: 2;
+  padding: 8px 14px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--panel); backdrop-filter: blur(6px);
+  font-size: 13px; opacity: .85;
+}
+
 /* LIFTOFF toasts — corner stack; reduced-motion users never see the scene, but
    guard anyway so the transition degrades to an instant show/hide. */
 #toasts { position: fixed; top: 14px; right: 16px; z-index: 3; display: grid; gap: 8px; justify-items: end; }
