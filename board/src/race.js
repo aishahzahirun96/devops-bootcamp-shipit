@@ -17,7 +17,6 @@ export class Race {
 
   start(prompts) {
     this.prompts = prompts.slice(0, this.total);
-    this.total = this.prompts.length;
     this.phase = 'running';
     this._seq = 0;
     for (const r of this.racers.values()) { r.completed = 0; r.finishedAt = null; }

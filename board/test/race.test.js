@@ -60,3 +60,13 @@ test('reset returns to idle and zeroes racers but keeps them joined', () => {
   assert.deepEqual(r.prompts, []);
   assert.equal(r.snapshot().ships[0].completed, 0);
 });
+
+test('total stays the configured cap across rounds of differing length', () => {
+  const r = new Race({ total: 3 });
+  r.start(prompts(2));            // fewer than the cap
+  assert.equal(r.total, 3);
+  r.reset();
+  r.start(prompts(5)); // more than the cap
+  assert.equal(r.total, 3);
+  assert.equal(r.prompts.length, 3);  // clamped to the cap
+});
