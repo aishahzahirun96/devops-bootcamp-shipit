@@ -5,7 +5,7 @@ body { margin: 0; background: #0b1220; color: #e2e8f0; font: 16px/1.4 ui-monospa
 #field { flex: 1; min-height: 0; }
 #dock {
   border-top: 1px solid #1e293b;
-  width: 100%; max-width: 640px; margin: 0 auto; box-sizing: border-box;
+  width: 100%; max-width: 760px; margin: 0 auto; box-sizing: border-box;
   padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
   display: flex; flex-direction: column; gap: 0.5rem;
 }
@@ -22,7 +22,9 @@ body { margin: 0; background: #0b1220; color: #e2e8f0; font: 16px/1.4 ui-monospa
 .dot.y { background: #713f12; }
 .dot.g { background: #14532d; }
 #termtitle { margin-left: 8px; color: #64748b; font-size: 0.75rem; }
-#line { margin: 0; padding: 0.9rem 1rem 1.1rem; font-size: 1.3rem; line-height: 1.5; white-space: pre-wrap; word-break: break-all; }
+/* One command, one line — sized so the longest story command (55 chars with
+   the $ prompt) fits the dock without wrapping. */
+#line { margin: 0; padding: 0.9rem 1rem 1.1rem; font-size: clamp(0.75rem, 2.1vw, 1.15rem); line-height: 1.5; white-space: pre; overflow: hidden; }
 #term:not([data-active='1']) #line { opacity: 0.45; }
 #ps1 { color: #4ade80; }
 #typed { color: #f1f5f9; }
